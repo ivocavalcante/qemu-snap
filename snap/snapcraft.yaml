@@ -1,0 +1,649 @@
+name: qemu
+base: core20
+adopt-info: qemu
+architectures:
+  - build-on: amd64
+    run-on: amd64
+#compression: lzo
+summary: QEMU is a generic and open source machine emulator and virtualizer
+description: |
+  QEMU is a free and open-source emulator and virtualizer that can perform hardware virtualization. QEMU is a hosted virtual machine monitor: it emulates the machine's processor through dynamic binary translation and provides a set of different hardware and device models for the machine, enabling it to run a variety of guest operating systems.
+
+  This package contains QEMU tools and system emulators. User mode emulator are not included.
+
+  This is an UNNOFICIAL package, not affiliated and/or endorsed by upstream project.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: classic # use 'strict' once you have the right plugs and slots
+
+apps:
+  qemu-system-x86-64:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-x86_64
+    command-chain: [ bin/desktop-launch ]
+    #plugs:
+      #- desktop
+      #- desktop-legacy
+      #- wayland
+      #- x11
+      #- unity7
+      #- opengl
+      #- home
+      #- network
+      #- screen-inhibit-control
+      #- kvm
+      #- audio-playback
+      #- audio-record
+      #- raw-usb
+      #- removable-media
+      #- network-bind
+      #- network-control
+
+  qemu-system-aarch64:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-aarch64
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-cris:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-cris
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-microblaze:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-microblaze
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-mips64el:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-mips64el
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-or1k:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-or1k
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-riscv64:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-riscv64
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-sh4eb:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-sh4eb
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-alpha:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-alpha
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-hppa:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-hppa
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-microblazeel:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-microblazeel
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-mipsel:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-mipsel
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-ppc:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-ppc
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-rx:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-rx
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-sparc:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-sparc
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-xtensa:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-xtensa
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-arm:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-arm
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-i386:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-i386
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-mips:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-mips
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-moxie:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-moxie
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-ppc64:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-ppc64
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-s390x:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-s390x
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-sparc64:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-sparc64
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-xtensaeb:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-xtensaeb
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-avr:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-avr
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-m68k:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-m68k
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-mips64:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-mips64
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-nios2:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-nios2
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-riscv32:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-riscv32
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-sh4:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-sh4
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-system-tricore:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      DISABLE_WAYLAND: 1
+      GTK_USE_PORTAL: 1
+      GTK_DATA_PREFIX: $SNAP
+      XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/libgtk-3-0
+    command: usr/bin/qemu-system-tricore
+    command-chain: [ bin/desktop-launch ]
+
+  qemu-img:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+    command: usr/bin/qemu-img
+    #plugs:
+      #- home
+      #- removable-media
+
+  qemu-edid:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-edid
+
+  qemu-ga:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-ga
+
+  qemu-io:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-io
+
+  qemu-keymap:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-keymap
+
+  qemu-nbd:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-nbd
+
+  qemu-pr-helper:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-pr-helper
+
+  qemu-storage-daemon:
+    environment:
+      PATH: $SNAP/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET
+    command: usr/bin/qemu-storage-daemon
+
+parts:
+  gtk3:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: gtk
+    plugin: make
+    make-parameters: ["FLAVOR=gtk3"]
+    filesets:
+      bin:
+        - -usr/share/doc
+        - -usr/share/doc-base
+        - -usr/share/man*
+    build-packages:
+      - libgtk-3-dev
+    stage-packages:
+      - libxkbcommon0  # XKB_CONFIG_ROOT
+      - ttf-ubuntu-font-family
+      - dmz-cursor-theme
+      - light-themes
+      - adwaita-icon-theme
+      - gnome-themes-standard
+      - shared-mime-info
+      - libgtk-3-0
+      - libgdk-pixbuf2.0-0
+      - libglib2.0-bin
+      - libgtk-3-bin
+      - unity-gtk3-module
+      - libappindicator3-1
+      - locales-all
+      - xdg-user-dirs
+      - ibus-gtk3
+      - libibus-1.0-5
+      - fcitx-frontend-gtk3
+      - libgtk2.0-0
+      - libcanberra-gtk3-module
+      - packagekit-gtk3-module
+    prime:
+      - $bin
+
+  qemu:
+    after: [ gtk3 ]
+    source: https://gitlab.com/qemu-project/qemu.git
+    source-tag: v5.2.0
+    plugin: meson
+    filesets:
+      bin:
+        - -usr/share/doc
+        - -usr/share/doc-base
+        - -usr/share/man*
+    build-packages:
+      - coreutils
+      - pkg-config
+      - ccache
+      - libglib2.0-dev
+      - libpixman-1-dev
+      - libudev-dev
+      - multipath-tools
+      - libncursesw5-dev
+      - libxkbcommon-dev
+      - libsdl2-dev
+      - libsdl2-image-dev
+      - libaio-dev
+      - libpng-dev
+      - libjpeg8-dev
+      - libsasl2-dev
+      - libkeyutils-dev
+      - libslirp-dev
+      - libfdt-dev
+      - python3-sphinx
+      - dbus
+      - liblzo2-dev
+      - libdaxctl-dev
+      - libpmem-dev
+      - libxml2-dev
+      - libssh-dev
+      - sparse
+      - libvte-2.91-dev
+      - libnuma-dev
+      - libzstd-dev
+      - libbz2-dev
+      - libsnappy-dev
+      - libglusterfs-dev
+      - libseccomp-dev
+      - libnfs-dev
+      - libiscsi-dev
+      - libusb-dev
+      - xfslibs-dev
+      - libgbm-dev
+      - libusb-1.0-0-dev
+      - libusbredirparser-dev
+      - librados-dev
+      - librbd-dev
+      - libspice-protocol-dev
+      - libspice-server-dev
+      - libcap-ng-dev
+      - libcacard-dev
+      - libnspr4-dev
+      - libnss3-dev
+      - libibverbs-dev
+      - libnl-3-dev
+      - libnl-route-3-dev
+      - librdmacm-dev
+      - libibumad-dev
+      - libvde-dev
+      - libvdeplug-dev
+      - libbrlapi-dev
+      - libxen-dev
+      - libcurl4-gnutls-dev
+      - libvirglrenderer-dev
+      - libpam0g-dev
+      - libgcrypt20-dev
+      - libgpg-error-dev
+    stage-packages:
+      - libaio1
+      - libasn1-8-heimdal
+      - libcurl3-gnutls
+      - libgssapi3-heimdal
+      - libhcrypto4-heimdal
+      - libheimbase1-heimdal
+      - libheimntlm0-heimdal
+      - libhx509-5-heimdal
+      - libkrb5-26-heimdal
+      - libldap-2.4-2
+      - libnghttp2-14
+      - libpmem1
+      - libroken18-heimdal
+      - librtmp1
+      - libssh-4
+      - liburcu6
+      - libwind0-heimdal
+      - multipath-tools
+      - libpixman-1-0
+      - libxkbcommon0
+      - libsdl2-2.0-0
+      - libsdl2-image-2.0-0
+      - libslirp0
+      - libfdt1
+      - libdaxctl1
+      - libvte-2.91-0
+      - libnuma1
+      - libsnappy1v5
+      - libgfapi0
+      - libgfchangelog0
+      - libgfrpc0
+      - libgfxdr0
+      - libglusterfs0
+      - libtirpc-common
+      - libtirpc3
+      - libnfs13
+      - libibverbs1
+      - libiscsi7
+      - libnl-3-200
+      - libnl-route-3-200
+      - librdmacm1
+      - libreadline5
+      - xfsprogs
+      - libusb-1.0-0
+      - libusbredirparser1
+      - libboost-iostreams1.71.0
+      - libboost-program-options1.71.0
+      - libboost-thread1.71.0
+      - librados2
+      - librbd1
+      - iso-codes
+      - libcap2-bin
+      - libgstreamer-plugins-base1.0-0
+      - libgstreamer1.0-0
+      - libopus0
+      - liborc-0.4-0
+      - libspice-server1
+      - libcacard0
+      - libnspr4
+      - libnss3
+      - libpcsclite1
+      - ibverbs-providers
+      - libibumad3
+      - libvde0
+      - libvdeplug2
+      - libbrlapi0.7
+      - libxencall1
+      - libxendevicemodel1
+      - libxenevtchn1
+      - libxenforeignmemory1
+      - libxengnttab1
+      - libxenmisc4.11
+      - libxenstore3.0
+      - libxentoolcore1
+      - libxentoollog1
+      - libyajl2
+      - libvirglrenderer1
+      - liblzo2-2
+      - libcap-ng0
+      - libseccomp2
+      - libpam0g
+      - libaudit1
+    override-build: |
+      _version="$(git describe --tags | cut -d_ -f2)"
+      snapcraftctl set-version "${_version}+snap1"
+
+      echo "===== Debug info"
+      echo "$_version"
+      echo "$(pwd)"
+      /bin/echo -e "=====\n"
+
+      ./configure "--prefix=$SNAPCRAFT_PART_INSTALL/usr" \
+        --target-list=aarch64-softmmu,alpha-softmmu,arm-softmmu,avr-softmmu,cris-softmmu,hppa-softmmu,i386-softmmu,m68k-softmmu,microblaze-softmmu,microblazeel-softmmu,mips-softmmu,mips64-softmmu,mips64el-softmmu,mipsel-softmmu,moxie-softmmu,nios2-softmmu,or1k-softmmu,ppc-softmmu,ppc64-softmmu,riscv32-softmmu,riscv64-softmmu,rx-softmmu,s390x-softmmu,sh4-softmmu,sh4eb-softmmu,sparc-softmmu,sparc64-softmmu,tricore-softmmu,x86_64-softmmu,xtensa-softmmu,xtensaeb-softmmu \
+        --enable-malloc-trim \
+        --enable-modules \
+        --enable-module-upgrades \
+        --enable-avx512f \
+        --enable-crypto-afalg \
+        --enable-membarrier \
+        --enable-hax \
+        --enable-xen-pci-passthrough \
+        --enable-gcrypt \
+        --audio-drv-list=oss,alsa,sdl,pa
+
+      make -j$(nproc)
+      make install
+
+    prime:
+      - $bin
+
